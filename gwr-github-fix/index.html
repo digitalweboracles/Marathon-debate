@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Longest Debating Marathon — Guinness World Records Attempt</title>
+<meta name="description" content="Allan Adejoh takes on multiple debaters for 48 hours non-stop — a Guinness World Records attempt. 3rd–5th September 2026, The Statement Hotel, Abuja.">
+<!-- Open Graph — controls the WhatsApp/iMessage/Slack link-preview card.
+     Domain is allan-debate-marathon-rsvp.world (Railway) —
+     og:image must be an absolute, publicly reachable URL (WhatsApp's crawler
+     fetches it server-side, it cannot read a relative path or a local file). -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Longest Debating Marathon — Guinness World Records Attempt">
+<meta property="og:description" content="Allan Adejoh vs. multiple debaters, 48 hours non-stop. Be part of history — 3rd–5th Sept 2026, The Statement Hotel, Abuja.">
+<meta property="og:image" content="https://allan-debate-marathon-rsvp.world/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://allan-debate-marathon-rsvp.world/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Longest Debating Marathon — Guinness World Records Attempt">
+<meta name="twitter:description" content="Allan Adejoh vs. multiple debaters, 48 hours non-stop. Be part of history — 3rd–5th Sept 2026, The Statement Hotel, Abuja.">
+<meta name="twitter:image" content="https://allan-debate-marathon-rsvp.world/assets/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0a1730; --navy-deep:#060d1e; --navy-mid:#102a52; --royal:#1361c9;
+    --gold:#c9a227; --gold-light:#e7cd80; --gold-deep:#8a6c14;
+    --ivory:#faf7ef; --white:#ffffff; --ink:#0f1e35; --text-muted:#5c6a84;
+    --line:rgba(201,162,39,.35);
+    --font-display:'Playfair Display', serif;
+    --font-num:'Oswald', sans-serif;
+    --font-sans:'Inter', sans-serif;
+    --ease-soft:cubic-bezier(.22,1,.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font-sans);background:var(--ivory);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  body.gate-active{overflow:hidden;height:100vh;}
+  img{display:block;max-width:100%;}
+  a{color:inherit;}
+  .eyebrow{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .gold-rule{width:64px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:18px auto;}
+  .gold-rule.left{margin:18px 0;}
+
+  /* ---------- laurel / star icon ---------- */
+  .crest-icon{width:34px;height:34px;flex-shrink:0;}
+
+  /* ================= HERO ================= */
+  .hero{
+    position:relative;min-height:100svh;display:flex;flex-direction:column;
+    background:
+      radial-gradient(ellipse at 20% -10%, rgba(19,97,201,.35), transparent 55%),
+      radial-gradient(ellipse at 100% 0%, rgba(201,162,39,.14), transparent 45%),
+      linear-gradient(165deg, var(--navy-deep) 0%, var(--navy) 45%, var(--navy-mid) 100%);
+    color:var(--white);overflow:hidden;
+  }
+  .hero::before{content:'';position:absolute;inset:0;opacity:.5;
+    background-image:repeating-linear-gradient(45deg, rgba(255,255,255,.035) 0 2px, transparent 2px 34px),
+                      repeating-linear-gradient(-45deg, rgba(255,255,255,.035) 0 2px, transparent 2px 34px);
+    pointer-events:none;}
+  .hero-top{position:relative;z-index:2;padding:18px 24px 0;display:flex;align-items:center;justify-content:center;gap:10px;opacity:0;animation:fadeDown 1s var(--ease-soft) .15s forwards;}
+  .hero-top .eyebrow{color:var(--gold-light);}
+  .hero-body{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px 24px 14px;gap:16px;}
+  .hero-photo-wrap{opacity:0;transform:translateY(18px);animation:fadeUp 1s var(--ease-soft) .35s forwards;}
+  .hero-photo{
+    width:112px;height:112px;border-radius:50%;overflow:hidden;
+    border:3px solid var(--gold);box-shadow:0 0 0 7px rgba(201,162,39,.14), 0 30px 60px -20px rgba(0,0,0,.6);
+    margin:0 auto;
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;}
+  .hero-name{margin-top:10px;font-family:var(--font-num);font-weight:600;letter-spacing:.1em;font-size:.78rem;color:var(--gold-light);text-transform:uppercase;}
+  .hero-name span{display:block;font-family:var(--font-sans);font-weight:400;letter-spacing:.03em;color:rgba(255,255,255,.65);font-size:.72rem;margin-top:2px;text-transform:none;}
+
+  .hero-headline{opacity:0;transform:translateY(18px);animation:fadeUp 1s var(--ease-soft) .55s forwards;max-width:760px;}
+  .hero-headline h1{font-family:var(--font-display);font-weight:800;line-height:1.06;font-size:clamp(1.7rem, 6.4vw, 3.6rem);}
+  .hero-headline h1 em{font-style:italic;color:var(--gold-light);}
+  .hero-sub{opacity:0;transform:translateY(14px);animation:fadeUp 1s var(--ease-soft) .75s forwards;
+    font-size:1.02rem;color:rgba(255,255,255,.82);max-width:560px;font-weight:400;}
+  .hero-sub strong{color:var(--white);font-weight:600;}
+
+  .tagline-strip{opacity:0;animation:fadeUp 1s var(--ease-soft) .9s forwards;
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;
+    font-family:var(--font-num);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;}
+  .tag-pill{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);}
+  .tag-pill.gold{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:var(--navy-deep);border:none;font-weight:700;}
+  .tag-pill .strike{text-decoration:line-through;text-decoration-color:rgba(255,255,255,.5);opacity:.55;margin-right:6px;font-weight:400;}
+
+  /* countdown */
+  .countdown-wrap{opacity:0;animation:fadeUp 1s var(--ease-soft) 1.05s forwards;width:100%;max-width:520px;}
+  .countdown-label{font-family:var(--font-sans);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:12px;}
+  .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .cd-box{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:14px 4px 12px;backdrop-filter:blur(6px);}
+  .cd-num{font-family:var(--font-num);font-weight:700;font-size:clamp(1.5rem,5vw,2.1rem);color:var(--white);font-variant-numeric:tabular-nums;line-height:1;}
+  .cd-unit{margin-top:6px;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+  .countdown.ended .cd-box{border-color:var(--gold);}
+
+  .hero-cta-row{opacity:0;animation:fadeUp 1s var(--ease-soft) 1.2s forwards;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:999px;font-weight:600;font-size:.92rem;cursor:pointer;border:1px solid transparent;transition:transform .35s var(--ease-soft), box-shadow .35s var(--ease-soft);text-decoration:none;}
+  .btn:active{transform:scale(.97);}
+  .btn-gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--navy-deep);box-shadow:0 14px 30px -10px rgba(201,162,39,.55);}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 18px 36px -10px rgba(201,162,39,.65);}
+  .btn-outline{border:1px solid rgba(255,255,255,.35);color:var(--white);background:rgba(255,255,255,.03);}
+  .btn-outline:hover{background:rgba(255,255,255,.09);}
+
+  .hero-meta{opacity:0;animation:fadeUp 1s var(--ease-soft) 1.3s forwards;
+    position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:center;
+    padding:10px 24px 20px;font-size:.76rem;color:rgba(255,255,255,.68);font-weight:500;}
+  .hero-meta span{display:inline-flex;align-items:center;gap:7px;}
+  .hero-meta svg{width:15px;height:15px;flex-shrink:0;color:var(--gold-light);}
+
+  @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+  @keyframes fadeDown{to{opacity:1;}}
+
+  .scroll-cue{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:2;
+    display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.5);
+    font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;opacity:0;animation:fadeDown 1s var(--ease-soft) 1.6s forwards;}
+  .scroll-cue .chev{width:9px;height:9px;border-right:1.5px solid var(--gold-light);border-bottom:1.5px solid var(--gold-light);transform:rotate(45deg);animation:bob 1.8s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:rotate(45deg) translate(0,0);}50%{transform:rotate(45deg) translate(3px,3px);}}
+
+  /* ================= SECTIONS shared ================= */
+  section{padding:88px 0;position:relative;}
+  .section-head{text-align:center;max-width:680px;margin:0 auto 44px;}
+  .section-head .eyebrow{color:var(--gold-deep);}
+  .section-head h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.7rem,4.2vw,2.5rem);margin-top:10px;color:var(--navy);}
+
+  section:not(.hero), .letter-block, .guest-card, .partner-card{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease-soft), transform .9s var(--ease-soft);}
+  section.in-view, .letter-block.in-view, .guest-card.in-view, .partner-card.in-view{opacity:1;transform:translateY(0);}
+
+  /* ---------- ABOUT / mission ---------- */
+  .about{background:var(--white);}
+  .letter-block{max-width:700px;margin:0 auto;text-align:center;}
+  .letter-block p{font-size:1.06rem;color:#33425c;margin-bottom:1.15em;}
+  .letter-block p.lede{font-family:var(--font-display);font-style:italic;font-size:1.3rem;color:var(--navy);}
+  .letter-block p.emph{font-weight:600;color:var(--navy);}
+  .letter-block p.cta-line{font-weight:700;color:var(--gold-deep);}
+
+  /* ---------- DETAILS ---------- */
+  .details{background:linear-gradient(180deg,var(--ivory),var(--white));}
+  .details-card{max-width:760px;margin:0 auto;background:var(--white);border:1px solid var(--line);border-radius:20px;
+    box-shadow:0 30px 60px -30px rgba(10,23,48,.25);overflow:hidden;}
+  .details-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
+  .d-cell{padding:26px 22px;border-right:1px solid rgba(10,23,48,.08);border-bottom:1px solid rgba(10,23,48,.08);text-align:center;}
+  .d-cell:last-child{border-right:none;}
+  .d-cell .d-icon{width:26px;height:26px;color:var(--gold-deep);margin:0 auto 10px;}
+  .d-label{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);font-weight:700;}
+  .d-value{margin-top:6px;font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:var(--navy);}
+  .d-value small{display:block;font-family:var(--font-sans);font-weight:500;font-size:.72rem;color:var(--text-muted);margin-top:3px;text-transform:none;letter-spacing:0;}
+  .details-note{text-align:center;padding:20px 26px 26px;font-size:.85rem;color:var(--text-muted);}
+
+  /* ---------- GUEST WALL ---------- */
+  .guests{background:var(--navy-deep);color:var(--white);}
+  .guests .section-head .eyebrow{color:var(--gold-light);}
+  .guests .section-head h2{color:var(--white);}
+  .guests .section-head p{color:rgba(255,255,255,.65);margin-top:10px;font-size:.95rem;}
+  .guest-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  @media(min-width:560px){.guest-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(min-width:820px){.guest-grid{grid-template-columns:repeat(4,1fr);}}
+  @media(min-width:1080px){.guest-grid{grid-template-columns:repeat(6,1fr);}}
+  .guest-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;
+    transition:transform .5s var(--ease-soft), border-color .5s var(--ease-soft), opacity .9s var(--ease-soft);}
+  .guest-card:hover{transform:translateY(-4px);border-color:var(--gold);}
+  .guest-photo{width:100%;aspect-ratio:1/1;overflow:hidden;background:#132244;}
+  .guest-photo img{width:100%;height:100%;object-fit:cover;}
+  .guest-info{padding:10px 10px 13px;}
+  .guest-name{font-size:.72rem;font-weight:700;letter-spacing:.01em;line-height:1.25;}
+  .guest-role{margin-top:3px;font-size:.63rem;color:rgba(255,255,255,.55);line-height:1.3;}
+
+  /* ---------- PARTNERS ---------- */
+  .partners{background:var(--ivory);}
+  .partner-row{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
+  .partner-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px 30px;
+    display:flex;align-items:center;justify-content:center;min-width:190px;box-shadow:0 20px 40px -28px rgba(10,23,48,.3);}
+  .partner-card img{max-height:64px;width:auto;}
+  .partner-card.dark{background:var(--navy-deep);border-color:rgba(201,162,39,.4);padding:16px 22px;}
+  .partner-card.dark img{max-height:78px;border-radius:10px;}
+  .partner-card .partner-tag{display:none;}
+  .partner-card.official{flex-direction:column;gap:8px;padding:18px 26px 20px;}
+  .partner-card.official .partner-tag{display:block;font-family:var(--font-sans);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;}
+  .partner-note{text-align:center;margin-top:26px;font-size:.85rem;color:var(--text-muted);}
+
+  /* ---------- OFFICIAL / seal credibility ---------- */
+  .official{background:var(--white);}
+  .official-strip{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:22px;
+    background:linear-gradient(135deg,#fff,#faf5e8);border:1px solid var(--line);border-radius:18px;padding:24px 28px;
+    box-shadow:0 24px 50px -30px rgba(201,162,39,.4);}
+  .official-strip img{width:64px;height:64px;border-radius:50%;flex-shrink:0;}
+  .official-strip p{font-size:.86rem;color:var(--text-muted);}
+  .official-strip strong{display:block;color:var(--navy);font-family:var(--font-display);font-size:1.02rem;margin-bottom:3px;}
+
+  /* ---------- REGISTER ---------- */
+  .register{background:linear-gradient(165deg, var(--navy-deep), var(--navy) 60%, var(--navy-mid));color:var(--white);}
+  .register .section-head .eyebrow{color:var(--gold-light);}
+  .register .section-head h2{color:var(--white);}
+  .register .section-head p{color:rgba(255,255,255,.68);margin-top:10px;}
+  .register-form{max-width:480px;margin:0 auto;background:rgba(255,255,255,.04);border:1px solid var(--line);
+    border-radius:20px;padding:32px 28px;backdrop-filter:blur(6px);}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:7px;font-weight:600;}
+  .field input, .field select{width:100%;padding:13px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.05);color:var(--white);font-family:var(--font-sans);font-size:.92rem;outline:none;
+    transition:border-color .3s;}
+  .field input::placeholder{color:rgba(255,255,255,.35);}
+  .field input:focus, .field select:focus{border-color:var(--gold);}
+  .field select option{color:#111;}
+  .register-form .btn{width:100%;justify-content:center;margin-top:6px;}
+  .register-confirm{display:none;text-align:center;padding:20px 6px 4px;}
+  .register-confirm.show{display:block;}
+  .register-confirm .check{width:46px;height:46px;border-radius:50%;background:var(--gold);color:var(--navy-deep);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.3rem;}
+  .register-confirm h3{font-family:var(--font-display);font-size:1.2rem;margin-bottom:8px;}
+  .register-confirm p{font-size:.85rem;color:rgba(255,255,255,.7);}
+  .register-form.submitted .field, .register-form.submitted button[type="submit"]{display:none;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy-deep);color:rgba(255,255,255,.55);padding:50px 0 34px;text-align:center;}
+  footer .foot-theme{font-family:var(--font-display);font-style:italic;font-size:1.15rem;color:var(--gold-light);margin-bottom:6px;}
+  footer .foot-sub{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+  footer .foot-meta{margin-top:22px;font-size:.76rem;color:rgba(255,255,255,.35);}
+
+  /* ---------- MUSIC TOGGLE ---------- */
+  .music-toggle{position:fixed;right:18px;bottom:18px;z-index:80;width:48px;height:48px;border-radius:50%;
+    background:rgba(10,23,48,.82);border:1px solid var(--line);box-shadow:0 10px 26px -10px rgba(0,0,0,.6);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+    opacity:0;pointer-events:none;transform:translateY(8px);
+    transition:transform .3s var(--ease-soft), border-color .3s, opacity .7s var(--ease-soft) .3s, transform .7s var(--ease-soft) .3s;}
+  body:not(.gate-active) .music-toggle{opacity:1;pointer-events:auto;transform:translateY(0);}
+  .music-toggle:hover{transform:scale(1.06);border-color:var(--gold);}
+  .music-toggle svg{width:20px;height:20px;}
+  .music-toggle .icon-mute{display:none;}
+  .music-toggle.muted .icon-on{display:none;}
+  .music-toggle.muted .icon-mute{display:block;}
+
+  /* ================= ENVELOPE / SEAL GATE ================= */
+  .gate{position:fixed;inset:0;z-index:2000;overflow:hidden;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(19,97,201,.32), transparent 55%),
+      radial-gradient(ellipse at 100% 100%, rgba(201,162,39,.14), transparent 45%),
+      linear-gradient(165deg, var(--navy-deep) 0%, var(--navy) 45%, var(--navy-mid) 100%);
+    transition:opacity .9s var(--ease-soft), visibility .9s var(--ease-soft);}
+  .gate.dismissed{opacity:0;visibility:hidden;pointer-events:none;}
+  .gate::before{content:'';position:absolute;inset:0;opacity:.5;pointer-events:none;
+    background-image:repeating-linear-gradient(45deg, rgba(255,255,255,.035) 0 2px, transparent 2px 34px),
+                      repeating-linear-gradient(-45deg, rgba(255,255,255,.035) 0 2px, transparent 2px 34px);}
+  .gate-perspective{position:absolute;inset:0;perspective:1400px;}
+
+  .flap{position:absolute;background:linear-gradient(160deg,#12294f,#0a1730 78%);}
+  .flap::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg, rgba(255,255,255,.06), transparent 60%);}
+  .flap-top{top:0;left:0;right:0;height:56%;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top center;
+    transition:transform 1s var(--ease-soft);box-shadow:0 2px 22px rgba(0,0,0,.35) inset, 0 0 0 1px rgba(201,162,39,.12) inset;
+    z-index:5;background:linear-gradient(175deg,#16305c,#0d1c3a 85%);}
+  .flap-bottom{bottom:0;left:0;right:0;height:56%;clip-path:polygon(0 100%,100% 100%,50% 0);background:linear-gradient(5deg,#091533,#122a52 85%);box-shadow:0 -18px 40px -20px rgba(0,0,0,.45) inset;}
+  .flap-left{top:0;bottom:0;left:0;width:56%;clip-path:polygon(0 0,0 100%,100% 50%);background:linear-gradient(100deg,#122a52,#091430 88%);}
+  .flap-right{top:0;bottom:0;right:0;width:56%;clip-path:polygon(100% 0,100% 100%,0 50%);background:linear-gradient(260deg,#122a52,#091430 88%);}
+  .gate.opening .flap-top{transform:rotateX(-172deg);}
+
+  .gate-eyebrow{position:absolute;top:9%;left:0;right:0;text-align:center;z-index:20;
+    font-family:var(--font-sans);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold-light);opacity:.85;transition:opacity .4s ease;}
+  .gate.opening .gate-eyebrow{opacity:0;}
+
+  .reveal-card{position:absolute;left:50%;bottom:9%;transform:translate(-50%,26px) scale(.8);width:min(66vw,270px);border-radius:14px;overflow:hidden;
+    box-shadow:0 40px 90px -20px rgba(0,0,0,.7);opacity:0;border:2px solid var(--gold);
+    transition:transform 1.05s var(--ease-soft) .25s, opacity .7s ease .25s;z-index:15;}
+  .reveal-card img{display:block;width:100%;height:auto;}
+  .gate.opening .reveal-card{transform:translate(-50%,-2vh) scale(1);opacity:1;}
+  .reveal-theme{position:absolute;left:0;right:0;bottom:3.5%;text-align:center;z-index:16;
+    opacity:0;transition:opacity .8s ease .95s, transform .8s var(--ease-soft) .95s;transform:translateY(14px);}
+  .gate.opening .reveal-theme{opacity:1;transform:translateY(0);}
+  .reveal-theme .rt-title{font-family:var(--font-display);font-weight:700;font-size:clamp(1.05rem,4.6vw,1.35rem);color:var(--white);text-shadow:0 2px 12px rgba(0,0,0,.55);}
+  .reveal-theme .rt-sub{font-family:var(--font-num);letter-spacing:.16em;text-transform:uppercase;font-size:.66rem;color:var(--gold-light);margin-top:7px;text-shadow:0 2px 10px rgba(0,0,0,.5);}
+
+  .seal-zone{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;z-index:20;}
+  .seal-btn{cursor:pointer;background:none;border:none;padding:0;width:min(46vw,200px);height:min(46vw,200px);aspect-ratio:1/1;position:relative;filter:drop-shadow(0 18px 34px rgba(0,0,0,.55));transition:transform .35s var(--ease-soft);flex-shrink:0;}
+  .seal-btn:active{transform:scale(.96);}
+  .seal-btn.cracking{animation:sealPulseHit .28s ease;}
+  @keyframes sealPulseHit{0%{transform:scale(1);}40%{transform:scale(.92) rotate(-1deg);}100%{transform:scale(1);}}
+  .seal-half{position:absolute;inset:0;transition:transform .7s var(--ease-soft), opacity .6s ease .05s;}
+  .seal-half.left{clip-path:inset(0 50% 0 0);}
+  .seal-half.right{clip-path:inset(0 0 0 50%);}
+  .seal-btn.cracked .seal-half.left{transform:translate(-24px,-12px) rotate(-14deg);opacity:0;}
+  .seal-btn.cracked .seal-half.right{transform:translate(24px,-8px) rotate(13deg);opacity:0;}
+  .crack-flash{position:absolute;inset:0;opacity:0;pointer-events:none;}
+  .seal-btn.cracking .crack-flash{opacity:1;transition:opacity .5s ease .12s;}
+  .seal-btn.cracked .crack-flash{opacity:0;}
+  .seal-ring{position:absolute;left:50%;top:50%;width:min(46vw,200px);height:min(46vw,200px);transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(201,162,39,.35);animation:ringPulse 2.4s ease-out infinite;pointer-events:none;}
+  @keyframes ringPulse{0%{transform:translate(-50%,-50%) scale(.94);opacity:.6;}100%{transform:translate(-50%,-50%) scale(1.5);opacity:0;}}
+  .gate.opening .seal-ring{display:none;}
+
+  .gate-tap{font-family:var(--font-sans);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.6);opacity:.9;z-index:20;text-align:center;}
+  .gate-tap strong{color:var(--gold-light);}
+  .gate.opening .gate-tap{opacity:0;transition:opacity .3s ease;}
+
+  @media(max-width:640px){
+    .details-grid{grid-template-columns:repeat(2,1fr);}
+    .d-cell{border-right:1px solid rgba(10,23,48,.08);}
+    .d-cell:nth-child(2n){border-right:none;}
+  }
+</style>
+</head>
+<body class="gate-active">
+
+<audio id="bgMusic" src="assets/gwr-anthem.mp3" loop preload="auto"></audio>
+
+<!-- ================= ENVELOPE / SEAL GATE ================= -->
+<div class="gate" id="gate">
+  <div class="gate-perspective">
+    <div class="flap flap-bottom"></div>
+    <div class="flap flap-left"></div>
+    <div class="flap flap-right"></div>
+    <div class="flap flap-top" id="flapTop"></div>
+  </div>
+
+  <div class="gate-eyebrow">Guinness World Records&trade; Attempt</div>
+
+  <div class="reveal-card" id="revealCard"><img src="assets/allan-adejoh-hero.jpg" alt=""></div>
+  <div class="reveal-theme">
+    <div class="rt-title">The Longest Debating Marathon</div>
+    <div class="rt-sub">48 Hours &middot; Non&#8209;Stop</div>
+  </div>
+
+  <div class="seal-zone">
+    <button class="seal-btn" id="sealBtn" aria-label="Open invitation">
+      <div class="seal-ring"></div>
+      <svg viewBox="0 0 200 200" class="seal-half left">
+        <defs>
+          <radialGradient id="medalGradL" cx="35%" cy="28%" r="78%">
+            <stop offset="0%" stop-color="#f3dd9a"/>
+            <stop offset="45%" stop-color="#c9a227"/>
+            <stop offset="100%" stop-color="#7a5c12"/>
+          </radialGradient>
+          <path id="topArcL" d="M 26 104 A 74 74 0 0 1 174 104" fill="none"/>
+        </defs>
+        <circle cx="100" cy="100" r="96" fill="url(#medalGradL)" stroke="#4a3608" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(10,23,48,.5)" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+        <text font-family="Oswald, sans-serif" font-size="9.6" font-weight="700" letter-spacing="1.4" fill="#2a1d05">
+          <textPath href="#topArcL" startOffset="50%" text-anchor="middle">GUINNESS WORLD RECORDS</textPath>
+        </text>
+        <g transform="translate(100,100)" fill="#2a1d05" opacity=".88">
+          <g transform="translate(-5.1,57.8) rotate(130.0)"><path d="M0,0 Q8.2,-4.8 15.0,0 Q8.2,4.8 0,0 Z"/></g>
+          <g transform="translate(-20.7,56.9) rotate(145.0)"><path d="M0,0 Q7.9,-4.6 14.3,0 Q7.9,4.6 0,0 Z"/></g>
+          <g transform="translate(-36.3,51.8) rotate(160.0)"><path d="M0,0 Q7.5,-4.4 13.6,0 Q7.5,4.4 0,0 Z"/></g>
+          <g transform="translate(-50.4,42.3) rotate(175.0)"><path d="M0,0 Q7.1,-4.1 12.9,0 Q7.1,4.1 0,0 Z"/></g>
+          <g transform="translate(-62.0,28.9) rotate(190.0)"><path d="M0,0 Q6.7,-3.9 12.2,0 Q6.7,3.9 0,0 Z"/></g>
+          <g transform="translate(-69.4,14.8) rotate(203.0)"><path d="M0,0 Q6.3,-3.7 11.5,0 Q6.3,3.7 0,0 Z"/></g>
+          <g transform="translate(-73.6,0.0) rotate(215.0)"><path d="M0,0 Q5.9,-3.5 10.8,0 Q5.9,3.5 0,0 Z"/></g>
+          <g transform="translate(5.1,57.8) rotate(50.0)"><path d="M0,0 Q8.2,-4.8 15.0,0 Q8.2,4.8 0,0 Z"/></g>
+          <g transform="translate(20.7,56.9) rotate(35.0)"><path d="M0,0 Q7.9,-4.6 14.3,0 Q7.9,4.6 0,0 Z"/></g>
+          <g transform="translate(36.3,51.8) rotate(20.0)"><path d="M0,0 Q7.5,-4.4 13.6,0 Q7.5,4.4 0,0 Z"/></g>
+          <g transform="translate(50.4,42.3) rotate(5.0)"><path d="M0,0 Q7.1,-4.1 12.9,0 Q7.1,4.1 0,0 Z"/></g>
+          <g transform="translate(62.0,28.9) rotate(-10.0)"><path d="M0,0 Q6.7,-3.9 12.2,0 Q6.7,3.9 0,0 Z"/></g>
+          <g transform="translate(69.4,14.8) rotate(-23.0)"><path d="M0,0 Q6.3,-3.7 11.5,0 Q6.3,3.7 0,0 Z"/></g>
+          <g transform="translate(73.6,0.0) rotate(-35.0)"><path d="M0,0 Q5.9,-3.5 10.8,0 Q5.9,3.5 0,0 Z"/></g>
+        </g>
+        <ellipse cx="100" cy="160" rx="4" ry="5.4" fill="#2a1d05" opacity=".88"/>
+        <text x="100" y="108" text-anchor="middle" font-family="Playfair Display, serif" font-weight="800" font-size="48" fill="#2a1d05">48</text>
+        <text x="100" y="127" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="700" font-size="12" letter-spacing="4" fill="#2a1d05">HOURS</text>
+      </svg>
+      <svg viewBox="0 0 200 200" class="seal-half right">
+        <defs>
+          <radialGradient id="medalGradR" cx="35%" cy="28%" r="78%">
+            <stop offset="0%" stop-color="#f3dd9a"/>
+            <stop offset="45%" stop-color="#c9a227"/>
+            <stop offset="100%" stop-color="#7a5c12"/>
+          </radialGradient>
+          <path id="topArcR" d="M 26 104 A 74 74 0 0 1 174 104" fill="none"/>
+        </defs>
+        <circle cx="100" cy="100" r="96" fill="url(#medalGradR)" stroke="#4a3608" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(10,23,48,.5)" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+        <text font-family="Oswald, sans-serif" font-size="9.6" font-weight="700" letter-spacing="1.4" fill="#2a1d05">
+          <textPath href="#topArcR" startOffset="50%" text-anchor="middle">GUINNESS WORLD RECORDS</textPath>
+        </text>
+        <g transform="translate(100,100)" fill="#2a1d05" opacity=".88">
+          <g transform="translate(-5.1,57.8) rotate(130.0)"><path d="M0,0 Q8.2,-4.8 15.0,0 Q8.2,4.8 0,0 Z"/></g>
+          <g transform="translate(-20.7,56.9) rotate(145.0)"><path d="M0,0 Q7.9,-4.6 14.3,0 Q7.9,4.6 0,0 Z"/></g>
+          <g transform="translate(-36.3,51.8) rotate(160.0)"><path d="M0,0 Q7.5,-4.4 13.6,0 Q7.5,4.4 0,0 Z"/></g>
+          <g transform="translate(-50.4,42.3) rotate(175.0)"><path d="M0,0 Q7.1,-4.1 12.9,0 Q7.1,4.1 0,0 Z"/></g>
+          <g transform="translate(-62.0,28.9) rotate(190.0)"><path d="M0,0 Q6.7,-3.9 12.2,0 Q6.7,3.9 0,0 Z"/></g>
+          <g transform="translate(-69.4,14.8) rotate(203.0)"><path d="M0,0 Q6.3,-3.7 11.5,0 Q6.3,3.7 0,0 Z"/></g>
+          <g transform="translate(-73.6,0.0) rotate(215.0)"><path d="M0,0 Q5.9,-3.5 10.8,0 Q5.9,3.5 0,0 Z"/></g>
+          <g transform="translate(5.1,57.8) rotate(50.0)"><path d="M0,0 Q8.2,-4.8 15.0,0 Q8.2,4.8 0,0 Z"/></g>
+          <g transform="translate(20.7,56.9) rotate(35.0)"><path d="M0,0 Q7.9,-4.6 14.3,0 Q7.9,4.6 0,0 Z"/></g>
+          <g transform="translate(36.3,51.8) rotate(20.0)"><path d="M0,0 Q7.5,-4.4 13.6,0 Q7.5,4.4 0,0 Z"/></g>
+          <g transform="translate(50.4,42.3) rotate(5.0)"><path d="M0,0 Q7.1,-4.1 12.9,0 Q7.1,4.1 0,0 Z"/></g>
+          <g transform="translate(62.0,28.9) rotate(-10.0)"><path d="M0,0 Q6.7,-3.9 12.2,0 Q6.7,3.9 0,0 Z"/></g>
+          <g transform="translate(69.4,14.8) rotate(-23.0)"><path d="M0,0 Q6.3,-3.7 11.5,0 Q6.3,3.7 0,0 Z"/></g>
+          <g transform="translate(73.6,0.0) rotate(-35.0)"><path d="M0,0 Q5.9,-3.5 10.8,0 Q5.9,3.5 0,0 Z"/></g>
+        </g>
+        <ellipse cx="100" cy="160" rx="4" ry="5.4" fill="#2a1d05" opacity=".88"/>
+        <text x="100" y="108" text-anchor="middle" font-family="Playfair Display, serif" font-weight="800" font-size="48" fill="#2a1d05">48</text>
+        <text x="100" y="127" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="700" font-size="12" letter-spacing="4" fill="#2a1d05">HOURS</text>
+      </svg>
+      <svg viewBox="0 0 200 200" class="crack-flash">
+        <path d="M100 6 L94 40 L108 66 L92 96 L110 128 L96 160 L100 194" stroke="#f3dd9a" stroke-width="2.4" fill="none" opacity=".9"/>
+      </svg>
+    </button>
+    <div class="gate-tap">Tap the seal to <strong>begin</strong></div>
+  </div>
+</div>
+
+<button class="music-toggle" id="musicToggle" aria-label="Toggle music" type="button">
+  <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a8.5 8.5 0 0 1 0 12"/></svg>
+  <svg class="icon-mute" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9l5 6M22 9l-5 6"/></svg>
+</button>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-top">
+    <svg class="crest-icon" viewBox="0 0 48 48" fill="none">
+      <circle cx="24" cy="24" r="21" stroke="#e7cd80" stroke-width="1.4"/>
+      <circle cx="24" cy="24" r="16.5" stroke="#e7cd80" stroke-width="1"/>
+      <path d="M24 13l2.6 6.9 7.4.3-5.8 4.7 2 7.1-6.2-4.2-6.2 4.2 2-7.1-5.8-4.7 7.4-.3z" fill="#e7cd80"/>
+    </svg>
+    <div class="eyebrow">Guinness World Records&trade; Attempt</div>
+  </div>
+
+  <div class="hero-body">
+    <div class="hero-photo-wrap">
+      <div class="hero-photo"><img src="assets/allan-adejoh-hero.jpg" alt="Allan Adejoh"></div>
+      <div class="hero-name">Allan Adejoh<span>Guinness World Record Attempter</span></div>
+    </div>
+
+    <div class="hero-headline">
+      <h1>The Longest Debating Marathon <em>by an Individual</em></h1>
+    </div>
+
+    <p class="hero-sub">One man. <strong>Multiple debaters. 48 hours, non‑stop.</strong> A live, continuous debating marathon staged in pursuit of a Guinness World Records attempt — and you're invited to witness it.</p>
+
+    <div class="tagline-strip">
+      <div class="tag-pill"><span class="strike">Olodo</span>Intellect Uprising</div>
+      <div class="tag-pill gold">48HRS Non‑Stop</div>
+    </div>
+
+    <div class="countdown-wrap">
+      <div class="countdown-label">Countdown to the Red Carpet</div>
+      <div class="countdown" id="countdown">
+        <div class="cd-box"><div class="cd-num" id="cdDays">00</div><div class="cd-unit">Days</div></div>
+        <div class="cd-box"><div class="cd-num" id="cdHours">00</div><div class="cd-unit">Hours</div></div>
+        <div class="cd-box"><div class="cd-num" id="cdMins">00</div><div class="cd-unit">Minutes</div></div>
+        <div class="cd-box"><div class="cd-num" id="cdSecs">00</div><div class="cd-unit">Seconds</div></div>
+      </div>
+    </div>
+
+    <div class="hero-cta-row">
+      <a href="#register" class="btn btn-gold">I Will Be There</a>
+      <a href="#guests" class="btn btn-outline">See Who's Involved</a>
+    </div>
+  </div>
+
+  <div class="hero-meta">
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+      3rd – 5th September 2026
+    </span>
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+      Red Carpet 1:00 PM
+    </span>
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg>
+      The Statement Hotel, Abuja
+    </span>
+  </div>
+
+  <div class="scroll-cue">Scroll<div class="chev"></div></div>
+</section>
+
+<!-- ================= ABOUT / MISSION ================= -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="letter-block">
+      <p class="lede">Be part of history.</p>
+      <p class="emph">One stage. One team. One extraordinary mission.</p>
+      <p>We are bringing together passionate minds, bold voices, and exceptional debaters for a 48-hour Guinness World Records debating marathon — a challenge that will test endurance, knowledge, preparation, teamwork, and the power of human expression.</p>
+      <p class="emph">This is more than a debate. It is an opportunity to make history.</p>
+      <p>Whether you are stepping up to debate, supporting the team, contributing behind the scenes, or witnessing the moment firsthand, your participation matters.</p>
+      <p class="cta-line">I will be there. Join the movement. Add your voice to a record that will be remembered.</p>
+      <p class="emph">The challenge is 48 hours. The impact could last forever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EVENT DETAILS ================= -->
+<section class="details" id="details">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">The Occasion</div>
+      <h2>Event Details</h2>
+    </div>
+    <div class="details-card">
+      <div class="details-grid">
+        <div class="d-cell">
+          <svg class="d-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+          <div class="d-label">Date</div>
+          <div class="d-value">3rd – 5th Sept<small>2026 · 48 hours non-stop</small></div>
+        </div>
+        <div class="d-cell">
+          <svg class="d-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <div class="d-label">Red Carpet</div>
+          <div class="d-value">1:00 PM<small>Sept 3rd — arrivals begin</small></div>
+        </div>
+        <div class="d-cell">
+          <svg class="d-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V8l8-5 8 5v13M4 21h16M9 21v-6h6v6"/></svg>
+          <div class="d-label">Grand Opening</div>
+          <div class="d-value">2:00 PM<small>Sept 3rd — opening ceremony</small></div>
+        </div>
+        <div class="d-cell">
+          <svg class="d-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 4v16M16 4v16M4 8h4M4 16h4M16 8h4M16 16h4"/></svg>
+          <div class="d-label">Debate Proper</div>
+          <div class="d-value">4:00 PM<small>Sept 3rd — the marathon begins</small></div>
+        </div>
+        <div class="d-cell">
+          <svg class="d-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg>
+          <div class="d-label">Venue</div>
+          <div class="d-value">The Statement Hotel<small>Abuja, Nigeria</small></div>
+        </div>
+      </div>
+      <div class="details-note">Open to debaters, volunteers, media and the public — come witness a record in the making.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GUEST WALL ================= -->
+<section class="guests" id="guests">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Standing With The Attempt</div>
+      <h2>Distinguished Guests &amp; Supporters</h2>
+      <p>The dignitaries, professionals and voices lending their name and presence to this record attempt.</p>
+    </div>
+    <div class="guest-grid" id="guestGrid"></div>
+  </div>
+</section>
+
+<!-- ================= PARTNERS ================= -->
+<section class="partners" id="partners">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">With Thanks To</div>
+      <h2>Supporting Partners</h2>
+    </div>
+    <div class="partner-row">
+      <div class="partner-card official dark">
+        <span class="partner-tag">Official Sponsor</span>
+        <img src="assets/sponsors/sabinvites-logo.jpg" alt="SABINVITES">
+      </div>
+      <div class="partner-card official">
+        <span class="partner-tag">Official Sponsor</span>
+        <img src="assets/sponsors/dwo-logo.jpg" alt="DWO">
+      </div>
+      <div class="partner-card"><img src="assets/guests-web/r5_c1_kay_hikers_club_logo.jpg" alt="Kay Hikers Club"></div>
+    </div>
+    <p class="partner-note">Interested in partnering or sponsoring the attempt? Reach out to the organizing team.</p>
+  </div>
+</section>
+
+<!-- ================= OFFICIAL STRIP ================= -->
+<section class="official">
+  <div class="container">
+    <div class="official-strip">
+      <img src="assets/gwr-seal-web.jpg" alt="Guinness World Records">
+      <p><strong>An Official Guinness World Records Attempt</strong>Staged under Guinness World Records attempt guidelines, with the aim of setting the record for the Longest Debating Marathon by an Individual.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REGISTER ================= -->
+<section class="register" id="register">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Join The Movement</div>
+      <h2>I Will Be There</h2>
+      <p>Tell us how you'd like to be part of it — as a debater, a volunteer, or a witness to history.</p>
+    </div>
+    <form class="register-form" id="registerForm">
+      <div class="field">
+        <label for="fName">Full Name</label>
+        <input type="text" id="fName" placeholder="Your full name" required>
+      </div>
+      <div class="field">
+        <label for="fRole">I'm joining as a</label>
+        <select id="fRole" required>
+          <option value="" disabled selected>Select one</option>
+          <option>Debater</option>
+          <option>Volunteer</option>
+          <option>Supporter / Guest</option>
+          <option>Media / Press</option>
+          <option>Witness (Attending)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="fContact">Phone or Email</label>
+        <input type="text" id="fContact" placeholder="How we can reach you" required>
+      </div>
+      <button type="submit" class="btn btn-gold">Confirm My Spot</button>
+      <div class="register-confirm" id="registerConfirm">
+        <div class="check">&#10003;</div>
+        <h3>You're on the list.</h3>
+        <p>Thank you for joining the movement — details on next steps will follow. See you at The Statement Hotel.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-theme">&mdash; Intellect Uprising &mdash;</div>
+    <div class="foot-sub">Longest Debating Marathon by an Individual</div>
+    <div class="foot-meta">3rd&ndash;5th September 2026 &middot; The Statement Hotel, Abuja &middot; Guinness World Records Attempt by Allan Adejoh</div>
+  </div>
+</footer>
+
+<script>
+  // ---------- guest data ----------
+  const GUESTS = [
+    ["collins_ugwuanyi","ENGR COLLINS UGWUANYI","CEO, Digital Weboracle ICT Services"],
+    ["r0_c0_chief_edward_onoja","CHIEF EDWARD ONOJA","Immediate Past Deputy Governor of Kogi State"],
+    ["r0_c1_dr_ninnah_samuel","DR NINNAH SAMUEL","Principal Partner, Nynnah Attorneys"],
+    ["r0_c2_maj_gen_chris_olukolade","MAJ. GEN. CHRIS OLUKOLADE RTD","Former Director of Defence Information, Nigeria Army"],
+    ["r0_c3_dr_elvis_abuyere","DR ELVIS ABUYERE","MD/CEO Skywise Group"],
+    ["r0_c4_engr_rex_uzoagbala","ENGR. REX UZOAGBALA (MNSE)","CEO, Zango Solar"],
+    ["r0_c5_high_chief_peter_ojonugwa_ameh","HIGH CHIEF PETER OJONUGWA AMEH","Kogi East NDC Senatorial Candidate, 2027"],
+    ["r0_c6_mr_ajah_excel","MR AJAH EXCEL","CEO &amp; Founder of Silicon Africa"],
+
+    ["r1_c0_shehu_atiku_abubakar","SHEHU ATIKU ABUBAKAR",""],
+    ["r1_c1_randy_peter_akah","RANDY PETER AKAH","Rights and Policy Advocate"],
+    ["r1_c2_hon_zainab_buba_galadima","HON. ZAINAB BUBA GALADIMA","CEO, Bringing the Table"],
+    ["r1_c3_mr_haruna_abdullahi","MR HARUNA ABDULLAHI","Journalist, Public Affairs Analyst &amp; Author"],
+    ["r1_c4_mr_theophilus_agada","MR THEOPHILUS AGADA","NDC Director of New Media"],
+    ["r1_c5_brains_achi","BRAINS ACHI","Debate Program Director"],
+    ["r1_c6_ogbuji_bright_obah","OGBUJI BRIGHT OBAH","MD/CEO Boclassified Services &amp; Bowoars Ltd"],
+
+    ["r2_c0_mr_ujah_martins","MR UJAH MARTINS","Author &amp; Civil Voice"],
+    ["r2_c1_mr_muhammad_jamil_idris","MR MUHAMMAD JAMIL IDRIS","CEO/Founder, The Quintillian Ltd"],
+    ["r2_c2_anate_victor_anuhi","ANATE VICTOR ANUHI","Former Military Officer"],
+    ["r2_c3_ifeanyi_oparaji","IFEANYI OPARAJI","Software Engineer &amp; AI Expert, Founder Cuzoo App"],
+    ["r2_c4_amb_kyenpia_gaya_best","AMB. KYENPIA GAYA BEST","Ambassador, Women &amp; Girls Speak"],
+    ["r2_c5_mr_samuel_ngoka","MR SAMUEL NGOKA","Founder &amp; Convener, Abuja Startup Expo"],
+    ["r2_c6_martha_alu","MARTHA ALU","Broadcast Journalist"],
+
+    ["r3_c0_chidera_cherish_iwuchukwu","CHIDERA-CHERISH IWUCHUKWU, ESQ","Principal Partner, Panto Attorneys &amp; Solicitors"],
+    ["r3_c1_lauretta_anolaba","LAURETTA ANOLABA","Public Speaker"],
+    ["r3_c2_mr_samson_akoh","MR SAMSON AKOH","Policy Analyst"],
+    ["r3_c3_ameh_unekwuojo","AMEH UNEKWUOJO","Sports Commentator"],
+    ["r3_c4_thompson_agada","THOMPSON AGADA ESQ.","Founder, Helpers Charitable Foundation"],
+    ["r3_c5_imam_maliik_aliyu_nuru","IMAM MALIIK ALIYU NURU",""],
+    ["r3_c6_fasasi_sodiq","FASASI SODIQ","Youth Development Advocate"],
+
+    ["r4_c0_noah_enemona_elijah","NOAH ENEMONA ELIJAH","Writer"],
+    ["r4_c1_mr_richard_ahuruonye","MR RICHARD AHURUONYE","Business Development Manager"],
+    ["r4_c2_faith_chubiyojo_okeme","FAITH CHUBIYOJO OKEME","Communication Specialist"],
+    ["r4_c3_mrs_tolutope_philemon","MRS TOLUTOPE PHILEMON","Ogwo Special Needs Consultant"],
+    ["r4_c4_chenemi_bameyi","CHENEMI BAMEYI","Journalist"],
+    ["r4_c5_joseph_akoh","JOSEPH AKOH","Social Commentator"],
+    ["r4_c6_wisdom_emem_akpabio","WISDOM EMEM AKPABIO","Cartographer / Geospatial Analyst"],
+
+    ["r5_c0_enike_richard_brimoh","ENIKE RICHARD BRIMOH","Software Engineer"],
+    ["r5_c2_adejoh_divine","ADEJOH DIVINE",""]
+  ];
+
+  const grid = document.getElementById('guestGrid');
+  GUESTS.forEach(([file,name,role])=>{
+    const card = document.createElement('div');
+    card.className = 'guest-card';
+    card.innerHTML = `
+      <div class="guest-photo"><img src="assets/guests-web/${file}.jpg" alt="${name}" loading="lazy"></div>
+      <div class="guest-info">
+        <div class="guest-name">${name}</div>
+        ${role ? `<div class="guest-role">${role}</div>` : ''}
+      </div>`;
+    grid.appendChild(card);
+  });
+
+  // ---------- countdown ----------
+  const target = new Date('2026-09-03T13:00:00+01:00').getTime();
+  const cdDays=document.getElementById('cdDays'), cdHours=document.getElementById('cdHours'),
+        cdMins=document.getElementById('cdMins'), cdSecs=document.getElementById('cdSecs'),
+        cdWrap=document.getElementById('countdown');
+  const pad = n => String(n).padStart(2,'0');
+  function tickCountdown(){
+    const now = Date.now();
+    let diff = target - now;
+    if(diff <= 0){
+      cdDays.textContent='00';cdHours.textContent='00';cdMins.textContent='00';cdSecs.textContent='00';
+      cdWrap.classList.add('ended');
+      return;
+    }
+    const d = Math.floor(diff/86400000); diff -= d*86400000;
+    const h = Math.floor(diff/3600000); diff -= h*3600000;
+    const m = Math.floor(diff/60000); diff -= m*60000;
+    const s = Math.floor(diff/1000);
+    cdDays.textContent=pad(d); cdHours.textContent=pad(h); cdMins.textContent=pad(m); cdSecs.textContent=pad(s);
+  }
+  tickCountdown();
+  setInterval(tickCountdown, 1000);
+
+  // ---------- scroll reveal ----------
+  const revealTargets = document.querySelectorAll('section, .letter-block, .guest-card, .partner-card');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in-view'); });
+  }, {threshold:.12});
+  revealTargets.forEach(t=>io.observe(t));
+
+  // ---------- background music ----------
+  const bgMusic = document.getElementById('bgMusic');
+  const musicToggle = document.getElementById('musicToggle');
+
+  function tryStartMusic(){
+    if(!bgMusic) return;
+    bgMusic.volume = 0.8;
+    const p = bgMusic.play();
+    if(p && p.catch){
+      p.catch(()=>{
+        // called from the seal-tap gesture, so this should succeed unmuted --
+        // this is just a safety net for the rare browser that still blocks it.
+        bgMusic.muted = true;
+        bgMusic.play().catch(()=>{});
+        musicToggle && musicToggle.classList.add('muted');
+        const unmuteOnce = ()=>{
+          bgMusic.muted = false;
+          musicToggle && musicToggle.classList.remove('muted');
+          ['pointerdown','touchstart','keydown','wheel'].forEach(evt=>window.removeEventListener(evt, unmuteOnce));
+        };
+        ['pointerdown','touchstart','keydown','wheel'].forEach(evt=>window.addEventListener(evt, unmuteOnce, {once:true, passive:true}));
+      });
+    }
+  }
+
+  if(musicToggle){
+    musicToggle.addEventListener('click', ()=>{
+      if(bgMusic.muted || bgMusic.paused){
+        bgMusic.muted = false;
+        if(bgMusic.paused) bgMusic.play().catch(()=>{});
+        musicToggle.classList.remove('muted');
+      } else {
+        bgMusic.muted = true;
+        musicToggle.classList.add('muted');
+      }
+    });
+  }
+
+  // ---------- lively ping-pong auto-scroll (down, then back up, on repeat) ----------
+  const CRUISE_SPEED = 78;   // px/s -- brisk and lively without being dizzying
+  const EASE_PX = 380;       // distance over which speed ramps up/down at each end
+  const MIN_SPEED_FACTOR = 0.1;
+  const HOLD_MS = 1500;      // brief pause at top/bottom before reversing
+  const IDLE_MS = 1200;      // how long to wait after a manual scroll before resuming
+
+  let direction = 1;         // 1 = scrolling down, -1 = scrolling up
+  let posTarget = null;
+  let lastFrameTime = null;
+  let holdUntil = 0;
+  let lastUserActionAt = 0;
+
+  function autoScrollStep(ts){
+    if(lastFrameTime === null) lastFrameTime = ts;
+    const dt = (ts - lastFrameTime) / 1000;
+    lastFrameTime = ts;
+
+    const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    if(posTarget === null) posTarget = window.scrollY;
+
+    const now = performance.now();
+    const userIdle = (now - lastUserActionAt) > IDLE_MS;
+
+    if(now < holdUntil){
+      requestAnimationFrame(autoScrollStep);
+      return;
+    }
+
+    if(userIdle && maxScroll > 60){
+      const legStart = direction === 1 ? 0 : maxScroll;
+      const legEnd = direction === 1 ? maxScroll : 0;
+      const traveled = Math.abs(posTarget - legStart);
+      const remaining = Math.abs(legEnd - posTarget);
+      const easeFactor = Math.max(MIN_SPEED_FACTOR, Math.min(1, traveled / EASE_PX, remaining / EASE_PX));
+      posTarget += direction * CRUISE_SPEED * easeFactor * dt;
+
+      if(direction === 1 && posTarget >= maxScroll){
+        posTarget = maxScroll;
+        direction = -1;
+        holdUntil = now + HOLD_MS;
+      } else if(direction === -1 && posTarget <= 0){
+        posTarget = 0;
+        direction = 1;
+        holdUntil = now + HOLD_MS;
+      }
+      window.scrollTo(0, posTarget);
+    } else {
+      // visitor is scrolling manually -- stay in sync so it resumes without a jump
+      posTarget = window.scrollY;
+    }
+    requestAnimationFrame(autoScrollStep);
+  }
+
+  ['wheel', 'touchmove', 'keydown'].forEach(evt=>{
+    window.addEventListener(evt, ()=>{ lastUserActionAt = performance.now(); }, {passive:true});
+  });
+
+  // ---------- envelope / seal gate ----------
+  const gate = document.getElementById('gate');
+  const sealBtn = document.getElementById('sealBtn');
+  let opened = false;
+
+  function openInvite(){
+    if(opened) return;
+    opened = true;
+    tryStartMusic();               // genuine tap gesture -- reliable unmuted autoplay
+    sealBtn.classList.add('cracking');
+    setTimeout(()=>{
+      sealBtn.classList.add('cracked');
+      gate.classList.add('opening');
+    }, 260);
+    setTimeout(()=>{
+      document.body.classList.remove('gate-active');
+    }, 900);
+    setTimeout(()=>{
+      gate.classList.add('dismissed');
+    }, 2500);
+    setTimeout(()=>{
+      // html{scroll-behavior:smooth} fights a frame-by-frame scrollTo loop
+      // (and fights any anchor-link jump, e.g. the CTA buttons below) --
+      // switch to manual easing before the auto-scroll takes over.
+      document.documentElement.style.scrollBehavior = 'auto';
+      requestAnimationFrame(autoScrollStep);
+    }, 3400);
+  }
+  sealBtn.addEventListener('click', openInvite);
+
+  // ---------- register form ----------
+  const form = document.getElementById('registerForm');
+  const confirmBox = document.getElementById('registerConfirm');
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    form.classList.add('submitted');
+    confirmBox.classList.add('show');
+  });
+</script>
+</body>
+</html>
