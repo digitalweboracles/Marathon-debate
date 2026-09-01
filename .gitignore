@@ -1,2 +1,6 @@
 # Do not commit the raw source archive - only the extracted site is deployed.
 *.zip
+
+# Node/Railway
+node_modules/
+data/

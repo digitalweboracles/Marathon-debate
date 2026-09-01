@@ -612,6 +612,7 @@
     <div class="foot-theme">&mdash; Intellect Uprising &mdash;</div>
     <div class="foot-sub">Longest Debating Marathon by an Individual</div>
     <div class="foot-meta">3rd&ndash;5th September 2026 &middot; The Statement Hotel, Abuja &middot; Guinness World Records Attempt by Allan Adejoh</div>
+    <div class="foot-meta" style="margin-top:6px;"><a href="/admin" style="opacity:.55;">Admin</a></div>
   </div>
 </footer>
 
@@ -832,13 +833,37 @@
   }
   sealBtn.addEventListener('click', openInvite);
 
-  // ---------- register form ----------
+  // ---------- register form (RSVP) ----------
   const form = document.getElementById('registerForm');
   const confirmBox = document.getElementById('registerConfirm');
-  form.addEventListener('submit', (e)=>{
+  form.addEventListener('submit', async (e)=>{
     e.preventDefault();
-    form.classList.add('submitted');
-    confirmBox.classList.add('show');
+    // Disable the button while saving to prevent duplicate submissions.
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.style.opacity = '.6'; }
+    try {
+      const payload = {
+        name: document.getElementById('fName').value.trim(),
+        role: document.getElementById('fRole').value,
+        contact: document.getElementById('fContact').value.trim()
+      };
+      const res = await fetch('/api/rsvp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) {
+        let msg = 'Something went wrong. Please try again.';
+        try { const d = await res.json(); if (d && d.error) msg = d.error; } catch(_) {}
+        throw new Error(msg);
+      }
+      form.classList.add('submitted');
+      confirmBox.classList.add('show');
+    } catch (err) {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.style.opacity = '1'; }
+      console.error('RSVP submit failed:', err);
+      alert(err.message || 'Could not save your RSVP. Please try again.');
+    }
   });
 </script>
 </body>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>RSVP Admin — GWR Debate Marathon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0a1730; --navy-deep:#060d1e; --navy-mid:#102a52; --royal:#1361c9;
+    --gold:#c9a227; --gold-light:#e7cd80; --gold-deep:#8a6c14;
+    --ivory:#faf7ef; --white:#ffffff; --ink:#0f1e35; --text-muted:#5c6a84;
+    --line:rgba(201,162,39,.35);
+    --font-display:'Playfair Display', serif;
+    --font-num:'Oswald', sans-serif;
+    --font-sans:'Inter', sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:var(--font-sans);background:var(--ivory);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;
+  }
+  .topbar{
+    background:linear-gradient(165deg, var(--navy-deep), var(--navy) 60%, var(--navy-mid));
+    color:var(--white);padding:18px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  }
+  .topbar h1{font-family:var(--font-display);font-size:1.25rem;font-weight:800;}
+  .topbar .sub{font-family:var(--font-num);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);}
+  .topbar .right{display:flex;align-items:center;gap:14px;}
+  .topbar .count-badge{font-family:var(--font-num);font-size:.78rem;letter-spacing:.08em;color:var(--gold-light);border:1px solid var(--line);padding:6px 14px;border-radius:999px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:999px;
+    font-weight:600;font-size:.85rem;cursor:pointer;border:1px solid transparent;
+    transition:transform .3s var(--ease-soft, cubic-bezier(.22,1,.36,1)), box-shadow .3s;
+    text-decoration:none;
+  }
+  .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:var(--navy-deep);}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 24px -8px rgba(201,162,39,.6);}
+  .btn-ghost{background:transparent;border-color:var(--line);color:var(--white);}
+  .btn-ghost:hover{border-color:var(--gold);}
+  .btn-danger{background:#7a1f1f;color:#fff;}
+  .btn-danger:hover{transform:translateY(-2px);}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 24px 60px;}
+
+  /* login card */
+  .login-card{
+    max-width:420px;margin:8vh auto 0;background:var(--white);border:1px solid var(--line);
+    border-radius:16px;padding:40px 34px;box-shadow:0 30px 60px -30px rgba(10,23,48,.35);
+  }
+  .login-card .crest{width:52px;height:52px;margin:0 auto 14px;display:block;}
+  .login-card h2{font-family:var(--font-display);font-size:1.5rem;text-align:center;font-weight:800;}
+  .login-card .hint{font-size:.8rem;color:var(--text-muted);text-align:center;margin:6px 0 22px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px;font-weight:600;}
+  .field input{
+    width:100%;padding:12px 14px;border:1px solid #d8d2c2;border-radius:10px;
+    font-family:var(--font-sans);font-size:.95rem;background:var(--ivory);color:var(--ink);
+  }
+  .field input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.18);}
+  .login-card .btn{width:100%;justify-content:center;margin-top:6px;}
+  .err{display:none;color:#a22;font-size:.82rem;margin-top:10px;text-align:center;}
+  .err.show{display:block;}
+
+  /* dashboard */
+  .panel{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+  .panel-head{
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    padding:16px 22px;border-bottom:1px solid #eee6d3;background:#fdfbf5;
+  }
+  .panel-head h2{font-family:var(--font-display);font-size:1.1rem;font-weight:800;}
+  .panel-head .actions{display:flex;gap:10px;flex-wrap:wrap;}
+  .panel-head .btn{font-size:.78rem;padding:8px 16px;}
+  .table-wrap{overflow-x:auto;}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;}
+  th{
+    text-align:left;font-family:var(--font-num);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--navy-mid);background:#f4efdf;padding:12px 18px;border-bottom:1px solid #e6dcc0;
+  }
+  td{padding:13px 18px;border-bottom:1px solid #f0e9d6;vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  tr:hover td{background:#fbf8ef;}
+  td .role-tag{
+    display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.04em;
+    background:rgba(19,97,201,.1);color:var(--royal);border-radius:999px;padding:3px 10px;
+  }
+  td .del{background:none;border:none;color:#a22;cursor:pointer;font-size:.78rem;text-decoration:underline;}
+  td .del:hover{color:#6e1414;}
+  .empty{padding:40px;text-align:center;color:var(--text-muted);font-size:.9rem;}
+  .muted{color:var(--text-muted);}
+  .foot-link{display:block;text-align:center;margin-top:22px;font-size:.8rem;color:var(--text-muted);}
+  .foot-link a{color:var(--royal);}
+</style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div>
+      <h1>RSVP Admin</h1>
+      <div class="sub">GWR Debate Marathon &middot; 3&ndash;5 Sept 2026 &middot; Abuja</div>
+    </div>
+    <div class="right" id="topRight" style="display:none;">
+      <span class="count-badge" id="countBadge">0 attending</span>
+      <button class="btn btn-ghost" onclick="logout()">Log out</button>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <!-- LOGIN -->
+    <div id="loginView">
+      <div class="login-card">
+        <img class="crest" src="assets/gwr-seal-web.jpg" alt="GWR Seal">
+        <h2>Admin Access</h2>
+        <p class="hint">Sign in to view RSVP submissions.</p>
+        <form id="loginForm">
+          <div class="field">
+            <label for="username">Username</label>
+            <input type="text" id="username" autocomplete="username" required>
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" autocomplete="current-password" required>
+          </div>
+          <button type="submit" class="btn btn-gold">Sign In</button>
+          <div class="err" id="loginErr">Incorrect username or password.</div>
+        </form>
+      </div>
+      <a class="foot-link" href="/">← Back to the site</a>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashView" style="display:none;">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Attendees &amp; RSVPs</h2>
+          <div class="actions">
+            <button class="btn btn-gold" onclick="exportCsv()">Export CSV</button>
+            <button class="btn btn-ghost" onclick="refresh()" style="color:var(--navy);border-color:var(--line);">Refresh</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Name</th><th>Role</th><th>Contact</th><th>Submitted (WAT)</th><th></th></tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+          <div class="empty" id="emptyMsg" style="display:none;">No RSVPs yet. Share the site to start collecting responses.</div>
+        </div>
+      </div>
+      <a class="foot-link" href="/">← Back to the site</a>
+    </div>
+  </div>
+
+<script>
+  const TOKEN_KEY = 'gwr_admin_token';
+  let token = localStorage.getItem(TOKEN_KEY) || '';
+
+  const $ = (id) => document.getElementById(id);
+
+  function showLogin(){ $('loginView').style.display='block'; $('dashView').style.display='none'; $('topRight').style.display='none'; }
+  function showDash(){ $('loginView').style.display='none'; $('dashView').style.display='block'; $('topRight').style.display='flex'; }
+
+  async function api(path, opts={}){
+    const headers = Object.assign({'Content-Type':'application/json'}, opts.headers||{});
+    if(token) headers['Authorization'] = 'Bearer ' + token;
+    const res = await fetch(path, Object.assign({}, opts, {headers}));
+    if(res.status === 401 && token){ token=''; localStorage.removeItem(TOKEN_KEY); showLogin(); throw new Error('Unauthorized'); }
+    return res;
+  }
+
+  $('loginForm').addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    $('loginErr').classList.remove('show');
+    const res = await api('/api/login', {
+      method:'POST',
+      body: JSON.stringify({ username: $('username').value.trim(), password: $('password').value })
+    });
+    if(res.status === 401){ $('loginErr').classList.add('show'); return; }
+    const data = await res.json();
+    token = data.token;
+    localStorage.setItem(TOKEN_KEY, token);
+    await refresh();
+    showDash();
+  });
+
+  async function refresh(){
+    const res = await api('/api/rsvps');
+    if(res.status !== 200) return;
+    const list = await res.json();
+    $('countBadge').textContent = list.length + (list.length === 1 ? ' attending' : ' attending');
+    const rows = $('rows');
+    rows.innerHTML = '';
+    if(!list.length){ $('emptyMsg').style.display='block'; return; }
+    $('emptyMsg').style.display='none';
+    list.forEach(r=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><strong>${escapeHtml(r.name)}</strong></td>
+        <td><span class="role-tag">${escapeHtml(r.role)}</span></td>
+        <td>${escapeHtml(r.contact)}</td>
+        <td class="muted">${escapeHtml(r.createdAt)}</td>
+        <td><button class="del" data-id="${r.id}">delete</button></td>`;
+      tr.querySelector('.del').addEventListener('click', async ()=>{
+        if(!confirm('Delete this RSVP?')) return;
+        await api('/api/rsvps/' + r.id, { method:'DELETE' });
+        await refresh();
+      });
+      rows.appendChild(tr);
+    });
+  }
+
+  function exportCsv(){
+    if(!token) return;
+    const a = document.createElement('a');
+    a.href = '/api/rsvps/export';
+    a.download = 'rsvps.csv';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  function logout(){ token=''; localStorage.removeItem(TOKEN_KEY); showLogin(); }
+
+  function escapeHtml(s){
+    return String(s ?? '').replace(/[&<>"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  // auto-login if a token is already stored
+  (async function init(){
+    if(token){
+      try {
+        const res = await api('/api/rsvps');
+        if(res.status === 200){ await refresh(); showDash(); return; }
+      } catch(e){ /* fall through to login */ }
+    }
+    showLogin();
+  })();
+</script>
+</body>
+</html>
